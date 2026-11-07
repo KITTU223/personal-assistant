@@ -2,6 +2,7 @@
 dist/
 
 # dev
+.trigger
 .cloudflare/
 .wrangler/
 .yarn/
