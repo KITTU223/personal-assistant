@@ -6,3 +6,30 @@ npm run dev
 ```
 open http://localhost:3000
 ```
+
+## Telegram echo bot
+
+`POST /telegram/webhook` copies every incoming message back to the chat it came from.
+
+Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_WEBHOOK_SECRET` in `.env`. The secret must be 1-256 characters from `A-Z`, `a-z`, `0-9`, `_` and `-`.
+
+Telegram only delivers to public HTTPS URLs on ports 443, 80, 88 or 8443. Once the app is reachable, register the webhook:
+
+```
+curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook" \
+  -d "url=https://your-domain.example/telegram/webhook" \
+  -d "secret_token=$TELEGRAM_WEBHOOK_SECRET" \
+  -d 'allowed_updates=["message"]'
+```
+
+Check delivery errors with `getWebhookInfo`:
+
+```
+curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getWebhookInfo"
+```
+
+## Deploy to Cloudflare Workers
+
+`npm run deploy` builds the Worker from `src/app.ts` and uploads the secrets from `.env`. `npm run dev:worker` runs it locally in the Workers runtime.
+
+Live URL: https://insist-clone.krutarthchauhan2000.workers.dev
