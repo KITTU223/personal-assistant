@@ -10,6 +10,7 @@ export default defineConfig({
       TELEGRAM_BOT_TOKEN: bindings.secret(),
       TELEGRAM_WEBHOOK_SECRET: bindings.secret(),
       OPENAI_API_KEY: bindings.secret(),
+      TRIGGER_SECRET_KEY: bindings.secret(),
     },
   },
 })
