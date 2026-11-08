@@ -3,7 +3,7 @@ import { Hono } from 'hono'
 import { env } from 'hono/adapter'
 import type { testAiResponse } from './trigger/test-ai.js'
 
-// Temporary route for local testing. The prompt is fixed in the task so that
+// Temporary test route, also served by the Worker. The prompt is fixed in the task so that
 // callers can't choose what is sent to OpenAI.
 const testAi = new Hono()
 

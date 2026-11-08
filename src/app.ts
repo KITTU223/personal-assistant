@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import telegram from './telegram.js'
+import testAi from './test-ai.js'
 
 const app = new Hono()
 
@@ -12,5 +13,6 @@ app.get('/marco', (c) => {
 })
 
 app.route('/telegram', telegram)
+app.route('/test', testAi)
 
 export default app

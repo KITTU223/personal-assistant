@@ -2,7 +2,7 @@ import { openai } from '@ai-sdk/openai'
 import { task } from '@trigger.dev/sdk'
 import { generateText } from 'ai'
 
-// Temporary: backs the local-only GET /test/ai route. Remove together with it.
+// Temporary: backs the GET /test/ai route. Remove together with it.
 export const testAiResponse = task({
   id: 'test-ai-response',
   maxDuration: 60,
